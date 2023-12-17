@@ -1,0 +1,39 @@
+# prompt: Use Perspective to create a chart for a trading dashboard using python
+
+import perspective as p
+
+# Create a DataFrame with some data
+df = p.DataFrame({
+  "date": ["2021-01-01", "2021-01-02", "2021-01-03"],
+  "open": [100, 101, 102],
+  "high": [105, 106, 107],
+  "low": [95, 96, 97],
+  "close": [100, 101, 102]
+})
+
+# Create a chart with the data
+chart = p.Chart(df, type="line")
+
+# Set the title and axes labels
+chart.title = "Stock Price Chart"
+chart.x_axis_label = "Date"
+chart.y_axis_label = "Price"
+
+# Show the chart
+chart.show()
+
+# Read input from the user
+action = input("What should I do? [A]ccelerate, [B]rake, "
+               "show [O]dometer, or show average [S]peed?").upper()
+
+# Do something based on the user's input
+if action == "A":
+  print("I'm accelerating!")
+elif action == "B":
+  print("I'm braking!")
+elif action == "O":
+  print("The odometer reads 100 miles.")
+elif action == "S":
+  print("The average speed is 50 miles per hour.")
+else:
+  print("Invalid input.")
